@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <p id="introp">By pushing the button you can enter a list of odd and even numbers. The program will return a list with the entered odd numbers multiplied by 2, and without the even numbers that were included in the initial list.</p>
+
+    <p id = "result"></p>
+
+    <button type = "button" id = "mybtn" onclick = "modif()">Enter list</button>
+
+    <script>
+        document.getElementById("introp").style.fontSize = "2em";
+        document.getElementById("mybtn").style.width = "150px";
+        document.getElementById("mybtn").style.height = "100px";
+        document.getElementById("mybtn").style.fontSize = "2em";
+
+        notEven = (num) => {
+            if (num % 2 !==0) {
+                return num;
+            }
+        }
+        
+        double = (num) => {
+            return num*2;
+        }
+        
+        function modif() {
+            var str = prompt("Enter numbers divided by blank");
+            var list = str.split(" ");
+            var listNotEv = list.filter(notEven);
+            var listDouble = listNotEv.map(double);
+            document.getElementById("result").innerHTML = "The new list with the initial odd numbers multiplied by 2 is: "+listDouble;
+            document.getElementById("result").style.fontSize = "2em";
+            document.getElementById("result").style.color = "red";
+            document.getElementById("mybtn").style.width = "300px";         
+        }
+    </script>
+        
+
+</body>
+</html>
